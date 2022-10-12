@@ -3,12 +3,15 @@ import { Link, Outlet } from "react-router-dom";
 
 function Layout() {
   return (
-    <nav>
-      <p>Min elkostnad</p>
-      <Link to="/">Home</Link> |{' '}
-      <Link to="/about">About</Link>
+    <div className="layout">
+      <nav>
+        <h1>Min elkostnad</h1>
+        <Link to="/">Home</Link> |{' '}
+        <Link to="/about">About</Link>
+      </nav>
       <Outlet />
-    </nav>
+    </div>
+
   );
 }
 

@@ -22,7 +22,7 @@ const calculateCost = ({ watt, costPerKWh }: calculateCostProps): number => {
 const DisplayCost = ({ watt, possessivePronoun, thing, costPerKWh }: DisplayCostProps) => {
   const resultingCost = calculateCost({watt, costPerKWh});
   return (
-    <section>
+    <section className='display-cost'>
       <h2>{possessivePronoun} {thing} kommer kosta <strong>{resultingCost}</strong>kr</h2>
       <p>om den körs i 1 timme på {watt} watt och priset på el är {costPerKWh} öre per kWh</p>
     </section>
