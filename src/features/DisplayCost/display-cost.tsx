@@ -14,13 +14,18 @@ type calculateCostProps = {
 
 const calculateCost = ({ watt, costPerKWh }: calculateCostProps): number => {
   // watt ==> kW, öre ==> kronor
-  return watt / 1000 / 100 * costPerKWh;
+  const result = watt / 1000 / 100 * costPerKWh;
+  
+  return Math.round((result + Number.EPSILON) * 1000) / 1000
 };
 
 const DisplayCost = ({ watt, possessivePronoun, thing, costPerKWh }: DisplayCostProps) => {
   const resultingCost = calculateCost({watt, costPerKWh});
   return (
-    <p>{possessivePronoun} {thing} kommer kosta <strong>{resultingCost}</strong> om den körs i 1 timme på {watt} watt</p>
+    <section>
+      <h2>{possessivePronoun} {thing} kommer kosta <strong>{resultingCost}</strong>kr</h2>
+      <p>om den körs i 1 timme på {watt} watt och priset på el är {costPerKWh} öre per kWh</p>
+    </section>
   );
 }; 
 

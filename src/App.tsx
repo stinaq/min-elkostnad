@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <DisplayCost watt={700} possessivePronoun={'Min'} thing={'micro'} costPerKWh={865}></DisplayCost>
+        <DisplayCost watt={0.3} possessivePronoun={'Min'} thing={'glödlampa'} costPerKWh={2222}></DisplayCost>
       </header>
     </div>
   );
