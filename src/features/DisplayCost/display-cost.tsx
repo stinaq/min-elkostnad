@@ -1,30 +1,28 @@
 import React from 'react'; // we need this to make JSX compile
+import { calculateCost } from './calculate-cost';
 
 type DisplayCostProps = {
-  watt: number;
+  kW: number;
   possessivePronoun: string;
   thing: string;
-  costPerKWh: number;
+  feeKrPerKWh: number;
 };
 
-type calculateCostProps = {
-  watt: number;
-  costPerKWh: number;
+const formatCost = (costInKr: number) => {
+  return Math.round((costInKr + Number.EPSILON) * 100) / 100;
 };
 
-const calculateCost = ({ watt, costPerKWh }: calculateCostProps): number => {
-  // watt ==> kW, öre ==> kronor
-  const result = watt / 1000 / 100 * costPerKWh;
-  
-  return Math.round((result + Number.EPSILON) * 1000) / 1000
-};
-
-const DisplayCost = ({ watt, possessivePronoun, thing, costPerKWh }: DisplayCostProps) => {
-  const resultingCost = calculateCost({watt, costPerKWh});
+const DisplayCost = ({ kW, possessivePronoun, thing, feeKrPerKWh }: DisplayCostProps) => {
+  const resultingCost = calculateCost.getFullCost({kW, feeKrPerKWh});
+  const { sumCost, taxCost, gridCost, electricityCost } = resultingCost;
+  const formattedSum = formatCost(sumCost);
+  const formattedGrid = formatCost(gridCost);
+  const formattedTax = formatCost(taxCost);
   return (
     <section className='display-cost'>
-      <h2>{possessivePronoun} {thing} kommer kosta <strong>{resultingCost}</strong>kr</h2>
-      <p>om den körs i 1 timme på {watt} watt och priset på el är {costPerKWh} öre per kWh</p>
+      <h2>{possessivePronoun} {thing} kommer kosta <b>{formattedSum}kr</b> per timme</h2>
+      <p>om den använder {kW * 1000} watt och priset på el är <b>{feeKrPerKWh * 100} öre</b> per kWh. 
+      Skatten är {formattedTax}kr, elnätsavgiften är {formattedGrid}kr, elhandelsavgiften är {electricityCost}kr</p>
     </section>
   );
 }; 
