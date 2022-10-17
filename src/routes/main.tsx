@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import DisplayCost from './../features/DisplayCost/display-cost';
-import InputValues from './../features/InputValues/input-values';
+import InputFee from '../features/InputValues/input-fee';
 import InputPower from '../features/InputValues/input-power';
 
-import { Power } from './../types/types'
+import { Power, Fee } from './../types/types'
 
 function Main() {
-  const [feeKrPerKWh, setFeeKrPerKWh] = useState(0);
+  const [fee, setFee] = useState<Fee>({ userInput: '', electricityKrPerKiloWattH: 0, });
   const [power, setPower] = useState<Power>({userInput: '', kiloWatt: 0});
 
   const handlePowerChange = (newWattValue?: string) => {
@@ -19,19 +19,21 @@ function Main() {
     }
   };
 
-  const handleFeeKrPerKWh = (newValue: number) => {
-    setFeeKrPerKWh(newValue);
+  const handleFeeKrPerKWh = (newOreValue?: string) => {
+    if (!newOreValue) {
+      setFee({ userInput: newOreValue, electricityKrPerKiloWattH: 0 });
+    } else {
+        const parsedOre = Number(newOreValue);
+        const parsedKr = parsedOre / 100;
+        setFee({ userInput: newOreValue, electricityKrPerKiloWattH: parsedKr });
+    }
   };
 
   return (
     <div>
-      <DisplayCost kW={power.kiloWatt} possessivePronoun={'Min'} thing={'vattenkokare'} feeKrPerKWh={feeKrPerKWh/100} />
-      {/* <InputValues
-        kiloWatt={kiloWatt}
-        onKiloWattChange={handlePowerChange}
-        feeKrPerKWh={feeKrPerKWh}
-        onFeeKrPerKWhChange={handleFeeKrPerKWh} /> */}
-        <InputPower power={power} onKiloWattChange={handlePowerChange} />
+      <DisplayCost power={power} possessivePronoun={'Min'} thing={'vattenkokare'} fee={fee} />
+      <InputFee fee={fee} onFeeKrPerKWhChange={handleFeeKrPerKWh} />
+      <InputPower power={power} onKiloWattChange={handlePowerChange} />
     </div>
   );
 }

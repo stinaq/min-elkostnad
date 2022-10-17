@@ -1,10 +1,10 @@
 
 type GetElectricalCostProps = {
-  kW: number;
+  kiloWatt: number;
   electricalFeeKrPerKWh: number;
 };
 
-const getElectricityCost = ({ kW, electricalFeeKrPerKWh }: GetElectricalCostProps): number => {
+const getElectricityCost = ({ kiloWatt: kW, electricalFeeKrPerKWh }: GetElectricalCostProps): number => {
   const result = kW * electricalFeeKrPerKWh;
   
   return result;
@@ -23,7 +23,7 @@ const getElectricalGridCost = (kW: number): number => {
 };
 
 type FullCostProps = {
-  kW: number;
+  kiloWatt: number;
   feeKrPerKWh: number;
 };
 
@@ -34,10 +34,10 @@ type FullCostType = {
   electricityCost: number;
 };
 
-const getFullCost = ({ kW, feeKrPerKWh }: FullCostProps): FullCostType => {
-  const taxCost = getElectricalTaxCost(kW);
-  const gridCost = getElectricalGridCost(kW);
-  const electricityCost = getElectricityCost({ kW, electricalFeeKrPerKWh: feeKrPerKWh });
+const getFullCost = ({ kiloWatt, feeKrPerKWh }: FullCostProps): FullCostType => {
+  const taxCost = getElectricalTaxCost(kiloWatt);
+  const gridCost = getElectricalGridCost(kiloWatt);
+  const electricityCost = getElectricityCost({ kiloWatt: kiloWatt, electricalFeeKrPerKWh: feeKrPerKWh });
 
   return {
     sumCost: taxCost + gridCost + electricityCost,
