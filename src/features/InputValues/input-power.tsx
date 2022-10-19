@@ -8,13 +8,12 @@ type InputPowerProps = {
 
 const InputPower = ({ power, onKiloWattChange }: InputPowerProps) => {
   const handleWattChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // changing watt ==> kiloWatt
     onKiloWattChange(event.target.value);
   };
 
   return (
     <div>
-      <section className='input-kilo-watt'>
+      <section className='input-section'>
         <label htmlFor="watt">Watt</label>
         <input
           type='number'

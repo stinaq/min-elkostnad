@@ -14,7 +14,7 @@ const InputValues = ({ fee, onFeeKrPerKWhChange }: InputFeeProps) => {
 
   return (
     <div>
-      <section className='input-fee'>
+      <section className='input-section'>
         <label htmlFor="ore">Pris per kWh i öre</label>
         <input
           type='number'

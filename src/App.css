@@ -24,3 +24,16 @@ a {
   font-size: 3rem;
   font-weight: normal;
 }
+
+.input-section {
+  padding: 1rem;
+  color: #EDF7F6;
+}
+
+.input-section input {
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  border-radius: 0.5rem;
+  border-color: #48392A;
+  border-width: 1px;
+}
