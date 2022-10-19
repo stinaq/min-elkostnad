@@ -31,7 +31,7 @@ function Main() {
 
   return (
     <div>
-      <DisplayCost power={power} possessivePronoun={'Min'} thing={'vattenkokare'} fee={fee} />
+      <DisplayCost power={power} possessivePronoun={'Min'} thing={'pryl'} fee={fee} />
       <InputFee fee={fee} onFeeKrPerKWhChange={handleFeeKrPerKWh} />
       <InputPower power={power} onKiloWattChange={handlePowerChange} />
     </div>
