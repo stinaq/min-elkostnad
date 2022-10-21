@@ -21,11 +21,12 @@ const DisplayCost = ({ power, possessivePronoun, thing, fee }: DisplayCostProps)
   const formattedSum = formatCost(sumCost);
   const formattedGrid = formatCost(gridCost);
   const formattedTax = formatCost(taxCost);
+  const formattedElectricity = formatCost(electricityCost);
   return (
     <section className='display-cost'>
       <h2>{possessivePronoun} {thing} kommer kosta <b>{formattedSum}kr</b> per timme</h2>
       <p>om den använder {power.userInput} watt och priset på el är <b>{fee.userInput} öre</b> per kWh. 
-      Skatten är {formattedTax}kr, elnätsavgiften är {formattedGrid}kr, elhandelsavgiften är {electricityCost}kr</p>
+      Skatten är {formattedTax}kr, elnätsavgiften är {formattedGrid}kr, elhandelsavgiften är {formattedElectricity}kr</p>
     </section>
   );
 }; 
