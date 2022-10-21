@@ -21,15 +21,20 @@ a {
 }
 
 .display-cost h2 {
-  font-size: 3rem;
+  font-size: 2.4rem;
   font-weight: normal;
+}
+
+.display-cost p {
+  font-size: 1.4rem;
+  line-height: 1.4;
 }
 
 .input-section {
   padding: 1rem;
   color: #EDF7F6;
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .input-section input {
@@ -37,4 +42,5 @@ a {
   border-radius: 0.5rem;
   border-color: #48392A;
   border-width: 1px;
+  font-size: 1rem;
 }
