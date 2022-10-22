@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import DisplayCost from './../features/DisplayCost/display-cost';
 import InputFee from '../features/InputValues/input-fee';
 import InputPower from '../features/InputValues/input-power';
+import InputThing from '../features/InputValues/input-thing';
 import { powerData } from '../data/power'
 
-import { Power, Fee } from './../types/types'
+import { Power, Fee, Thing } from './../types/types'
 
 function Main() {
   var randomExample = powerData.getRandomExample();
@@ -13,6 +14,8 @@ function Main() {
     userInput: randomExample.userInput, 
     kiloWatt: randomExample.kiloWatt
   });
+  const [thing, setThing] = useState<Thing>({ userInput: randomExample.description});
+
 
   const handlePowerChange = (newWattValue?: string) => {
     if (!newWattValue) {
@@ -24,7 +27,7 @@ function Main() {
     }
   };
 
-  const handleFeeKrPerKWh = (newOreValue?: string) => {
+  const handleFeeKrPerKWhChange = (newOreValue?: string) => {
     if (!newOreValue) {
       setFee({ userInput: newOreValue, electricityKrPerKiloWattH: 0 });
     } else {
@@ -34,11 +37,16 @@ function Main() {
     }
   };
 
+  const handleThingChange = (newThingValue?: string) => {
+    setThing({ userInput: newThingValue });
+  };
+
   return (
     <div>
-      <DisplayCost power={power} thing={randomExample.description} fee={fee} />
-      <InputFee fee={fee} onFeeKrPerKWhChange={handleFeeKrPerKWh} />
+      <DisplayCost power={power} thing={thing} fee={fee} />
+      <InputFee fee={fee} onFeeKrPerKWhChange={handleFeeKrPerKWhChange} />
       <InputPower power={power} onKiloWattChange={handlePowerChange} />
+      <InputThing thing={thing} onThingChange={handleThingChange} />
     </div>
   );
 }

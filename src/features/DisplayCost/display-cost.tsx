@@ -1,10 +1,10 @@
 import React from 'react'; // we need this to make JSX compile
-import { Power, Fee } from '../../types/types';
+import { Power, Fee, Thing } from '../../types/types';
 import { calculateCost } from './calculate-cost';
 
 type DisplayCostProps = {
   power: Power;
-  thing: string;
+  thing: Thing;
   fee: Fee;
 };
 
@@ -23,7 +23,7 @@ const DisplayCost = ({ power, thing, fee }: DisplayCostProps) => {
   const formattedElectricity = formatCost(electricityCost);
   return (
     <section className='display-cost'>
-      <h2>{thing} kostar <b>{formattedSum}kr</b> per timme</h2>
+      <h2>{thing.userInput} kostar <b>{formattedSum}kr</b> per timme</h2>
       <p>om den använder {power.userInput} watt och priset på el är <b>{fee.userInput} öre</b> per kWh. </p>
       <p>Skatten är {formattedTax}kr, elnätsavgiften är {formattedGrid}kr, elhandelsavgiften är {formattedElectricity}kr</p>
     </section>

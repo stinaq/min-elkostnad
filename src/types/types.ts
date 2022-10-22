@@ -7,3 +7,7 @@ export interface Fee {
   userInput?: string;
   electricityKrPerKiloWattH: number;
 };
+
+export interface Thing {
+  userInput?: string;
+}
