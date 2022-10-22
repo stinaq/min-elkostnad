@@ -9,7 +9,7 @@ type DisplayCostProps = {
 };
 
 const formatCost = (costInKr: number) => {
-  return Math.round((costInKr + Number.EPSILON) * 100) / 100;
+  return Math.round((costInKr + Number.EPSILON) * 1000) / 1000;
 };
 
 const DisplayCost = ({ power, thing, fee }: DisplayCostProps) => {
@@ -23,9 +23,9 @@ const DisplayCost = ({ power, thing, fee }: DisplayCostProps) => {
   const formattedElectricity = formatCost(electricityCost);
   return (
     <section className='display-cost'>
-      <h2>{thing} kommer kosta <b>{formattedSum}kr</b> per timme</h2>
-      <p>om den använder {power.userInput} watt och priset på el är <b>{fee.userInput} öre</b> per kWh. 
-      Skatten är {formattedTax}kr, elnätsavgiften är {formattedGrid}kr, elhandelsavgiften är {formattedElectricity}kr</p>
+      <h2>{thing} kostar <b>{formattedSum}kr</b> per timme</h2>
+      <p>om den använder {power.userInput} watt och priset på el är <b>{fee.userInput} öre</b> per kWh. </p>
+      <p>Skatten är {formattedTax}kr, elnätsavgiften är {formattedGrid}kr, elhandelsavgiften är {formattedElectricity}kr</p>
     </section>
   );
 }; 

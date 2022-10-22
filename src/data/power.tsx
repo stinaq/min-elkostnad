@@ -1,39 +1,51 @@
-type PowerExamples = {
-  watt: number;
+type PowerExample = {
+  userInput: string;
+  kiloWatt: number;
   description: string;
 };
 
-const examples: Array<PowerExamples> = [
+const examples: Array<PowerExample> = [
   {
-    watt: 6,
+    userInput: '6',
+    kiloWatt: 0.006,
     description: 'IKEA LED ljuskälla E27 806 lumen'
   },
   {
-    watt: 115,
-    description: 'Golvvärme för klinkers per m2'
+    userInput: '115',
+    kiloWatt: 0.115,
+    description: 'Golvvärme/m2 för klinkers på max'
   },
   {
-    watt: 50,
+    userInput: '50',
+    kiloWatt: 0.05,
     description: 'LED TV 42" i på-läge'
   },
   {
-    watt: 2,
+    userInput: '2',
+    kiloWatt: 0.002,
     description: 'LED TV 42" i standby-läge'
   },
   {
-    watt: 0.05,
+    userInput: '0.05',
+    kiloWatt: 0.00005,
     description: 'Genomsnittlig mobilladdare när den inte används'
   },
   {
-    watt: 500,
+    userInput: '500',
+    kiloWatt: 0.5,
     description: 'Kaffebryggare'
   },
   {
-    watt: 5000,
+    userInput: '5000',
+    kiloWatt: 5,
     description: 'Bastuaggregat på max'
   },
 ];
 
+const getRandomExample = (): PowerExample =>
+  examples[Math.floor(Math.random()*powerData.examples.length)]
+
 export const powerData = {
-  examples
+  examples,
+  getRandomExample,
 };

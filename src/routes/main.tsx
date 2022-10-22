@@ -7,9 +7,12 @@ import { powerData } from '../data/power'
 import { Power, Fee } from './../types/types'
 
 function Main() {
-  var randomExample = powerData.examples[Math.floor(Math.random()*powerData.examples.length)];
+  var randomExample = powerData.getRandomExample();
   const [fee, setFee] = useState<Fee>({ userInput: '40', electricityKrPerKiloWattH: 0.4, });
-  const [power, setPower] = useState<Power>({userInput: randomExample.watt.toString(), kiloWatt: randomExample.watt/1000});
+  const [power, setPower] = useState<Power>({
+    userInput: randomExample.userInput, 
+    kiloWatt: randomExample.kiloWatt
+  });
 
   const handlePowerChange = (newWattValue?: string) => {
     if (!newWattValue) {
