@@ -9,7 +9,7 @@ import { Power, Fee, Thing } from './../types/types'
 
 function Main() {
   var randomExample = powerData.getRandomExample();
-  const [fee, setFee] = useState<Fee>({ userInput: '40', electricityKrPerKiloWattH: 0.4, });
+  const [fee, setFee] = useState<Fee>({ userInput: '243', electricityKrPerKiloWattH: 2.43, });
   const [power, setPower] = useState<Power>({
     userInput: randomExample.userInput, 
     kiloWatt: randomExample.kiloWatt
