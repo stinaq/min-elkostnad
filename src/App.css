@@ -10,6 +10,17 @@ a {
   color: #48392A;
 }
 
+button {
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background: white;
+  color: black;
+  border: 2px solid #1f1111;
+  cursor: pointer;
+}
+
+
+
 .App {
   text-align: center;
 }

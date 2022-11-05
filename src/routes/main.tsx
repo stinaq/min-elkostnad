@@ -3,6 +3,7 @@ import DisplayCost from './../features/DisplayCost/display-cost';
 import InputFee from '../features/InputValues/input-fee';
 import InputPower from '../features/InputValues/input-power';
 import InputThing from '../features/InputValues/input-thing';
+import RandomiseValues from '../features/RandomiseValues/randomise-values';
 import { powerData } from '../data/power'
 
 import { Power, Fee, Thing } from './../types/types'
@@ -41,9 +42,16 @@ function Main() {
     setThing({ userInput: newThingValue });
   };
 
+  const setAllValues = (newOreValue: string, newWattValue: string, newThingValue: string) => {
+    handleFeeKrPerKWhChange(newOreValue);
+    handlePowerChange(newWattValue);
+    handleThingChange(newThingValue);
+  };
+
   return (
     <div>
       <DisplayCost power={power} thing={thing} fee={fee} />
+      <RandomiseValues onRandomise={setAllValues} />
       <InputFee fee={fee} onFeeKrPerKWhChange={handleFeeKrPerKWhChange} />
       <InputPower power={power} onKiloWattChange={handlePowerChange} />
       <InputThing thing={thing} onThingChange={handleThingChange} />

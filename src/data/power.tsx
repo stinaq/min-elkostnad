@@ -13,7 +13,7 @@ const examples: Array<PowerExample> = [
   {
     userInput: '115',
     kiloWatt: 0.115,
-    description: 'Golvvärme/m2 för klinkers på max'
+    description: 'Golvvärme/m² för klinkers på max'
   },
   {
     userInput: '50',
