@@ -1,6 +1,7 @@
-import React from 'react'; // we need this to make JSX compile
+import React from 'react';
 import { Power, Fee, Thing } from '../../types/types';
 import { calculateCost } from './calculate-cost';
+import ProportionsGraph from './proportions-graph';
 
 type DisplayCostProps = {
   power: Power;
@@ -25,8 +26,12 @@ const DisplayCost = ({ power, thing, fee }: DisplayCostProps) => {
     <section className='display-cost'>
       <div className='display-cost-content'>
         <h2>{thing.userInput} kostar <b>{formattedSum}kr</b> per timme</h2>
-        <p>om den använder {power.userInput} watt och priset på el är <b>{fee.userInput} öre</b> per kWh. </p>
-        <p>Skatten är {formattedTax}kr, elnätsavgiften är {formattedGrid}kr, elhandelsavgiften är {formattedElectricity}kr</p>
+        <p>om den använder {power.userInput} watt och priset på el är {fee.userInput} öre per kWh. </p>
+        <ProportionsGraph
+          taxCost={formattedTax}
+          gridCost={formattedGrid}
+          electricityCost={formattedElectricity}
+          fullCost={resultingCost} />
       </div>
     </section>
   );

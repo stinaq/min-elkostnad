@@ -1,3 +1,4 @@
+import { FullCost } from '../../types/types';
 
 type GetElectricalCostProps = {
   kiloWatt: number;
@@ -27,14 +28,7 @@ type FullCostProps = {
   feeKrPerKWh: number;
 };
 
-type FullCostType = {
-  sumCost: number;
-  taxCost: number;
-  gridCost: number;
-  electricityCost: number;
-};
-
-const getFullCost = ({ kiloWatt, feeKrPerKWh }: FullCostProps): FullCostType => {
+const getFullCost = ({ kiloWatt, feeKrPerKWh }: FullCostProps): FullCost => {
   const taxCost = getElectricalTaxCost(kiloWatt);
   const gridCost = getElectricalGridCost(kiloWatt);
   const electricityCost = getElectricityCost({ kiloWatt: kiloWatt, electricalFeeKrPerKWh: feeKrPerKWh });
