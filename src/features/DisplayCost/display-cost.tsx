@@ -23,9 +23,11 @@ const DisplayCost = ({ power, thing, fee }: DisplayCostProps) => {
   const formattedElectricity = formatCost(electricityCost);
   return (
     <section className='display-cost'>
-      <h2>{thing.userInput} kostar <b>{formattedSum}kr</b> per timme</h2>
-      <p>om den använder {power.userInput} watt och priset på el är <b>{fee.userInput} öre</b> per kWh. </p>
-      <p>Skatten är {formattedTax}kr, elnätsavgiften är {formattedGrid}kr, elhandelsavgiften är {formattedElectricity}kr</p>
+      <div className='display-cost-content'>
+        <h2>{thing.userInput} kostar <b>{formattedSum}kr</b> per timme</h2>
+        <p>om den använder {power.userInput} watt och priset på el är <b>{fee.userInput} öre</b> per kWh. </p>
+        <p>Skatten är {formattedTax}kr, elnätsavgiften är {formattedGrid}kr, elhandelsavgiften är {formattedElectricity}kr</p>
+      </div>
     </section>
   );
 }; 
