@@ -1,5 +1,6 @@
 import React from 'react';
 import { powerData } from '../../data/power'
+import { ReactComponent as RandomIcon } from '../../icons/random-icon.svg';
 
 type RandomiseValuesProps = {
   onRandomise: (newOreValue: string, newWattValue: string, newThingValue: string) => void;
@@ -16,13 +17,13 @@ const RandomiseValues = ({ onRandomise }: RandomiseValuesProps) => {
 
   return (
     <div>
-      <section className='input-section'>
-        <label htmlFor="randomise">Slumpa fram lite värden</label>
+      <section className='input-section random-button'>
+        <label htmlFor="randomise">Slumpa fram värden</label>
         <button
           type='button'
           name='randomise'
           onClick={handleRandomise}
-        >Slumpa</button>
+        ><RandomIcon /></button>
       </section>
     </div>
   );
