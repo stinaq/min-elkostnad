@@ -6,7 +6,7 @@ type InputFeeProps = {
   onFeeKrPerKWhChange: (newValue?: string) => void;
 };
 
-const InputValues = ({ fee, onFeeKrPerKWhChange }: InputFeeProps) => {
+const InputFee = ({ fee, onFeeKrPerKWhChange }: InputFeeProps) => {
   const handleOreChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     onFeeKrPerKWhChange(value);
@@ -27,4 +27,4 @@ const InputValues = ({ fee, onFeeKrPerKWhChange }: InputFeeProps) => {
   );
 }; 
 
-export default InputValues;
+export default InputFee;

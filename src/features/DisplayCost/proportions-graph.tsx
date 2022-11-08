@@ -18,7 +18,8 @@ const ProportionsGraph = ({ taxCost, gridCost, electricityCost, fullCost }: Prop
       <p>
         <span className='electricity-proportion legend-circle'></span>Elhandelsavgift {electricityCost}kr, 
         <span className='tax-proportion legend-circle'></span>skatt {taxCost}kr,
-        <span className='grid-proportion legend-circle'></span>elnätsavgift {gridCost}kr</p>
+        <span className='grid-proportion legend-circle'></span>elnätsavgift {gridCost}kr
+      </p>
       <div className='proportions'>
         <div style={{ width: `${electricityProportion}%` }} className='electricity-proportion'></div>
         <div style={{ width: `${taxProportion}%` }} className='tax-proportion'></div>

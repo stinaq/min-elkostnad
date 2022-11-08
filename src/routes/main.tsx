@@ -3,6 +3,7 @@ import DisplayCost from './../features/DisplayCost/display-cost';
 import InputFee from '../features/InputValues/input-fee';
 import InputPower from '../features/InputValues/input-power';
 import InputThing from '../features/InputValues/input-thing';
+import PickTimespan from '../features/InputValues/pick-timespan';
 import RandomiseValues from '../features/RandomiseValues/randomise-values';
 import { powerData } from '../data/power'
 
@@ -51,6 +52,7 @@ function Main() {
   return (
     <div>
       <DisplayCost power={power} thing={thing} fee={fee} />
+      <PickTimespan />
       <RandomiseValues onRandomise={setAllValues} />
       <InputFee fee={fee} onFeeKrPerKWhChange={handleFeeKrPerKWhChange} />
       <InputPower power={power} onKiloWattChange={handlePowerChange} />
