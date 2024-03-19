@@ -5,7 +5,8 @@
   --secondary-dark: #b93f7a;
 }
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   color: var(--primary-color);
@@ -40,14 +41,14 @@ svg {
 
 .display-cost {
   text-align: center;
-  color: #EDF7F6;
+  color: #edf7f6;
   padding: 1.2rem;
   background-color: var(--primary-color);
 }
 
 .display-cost-content {
   text-align: center;
-  color: #EDF7F6;
+  color: #edf7f6;
   padding: 1.2rem;
   border: 4px solid var(--secondary-light);
 }
@@ -126,10 +127,11 @@ svg {
 
 .proportions {
   display: flex;
+  margin: 60px 0 40px 0;
 }
 
 .proportions div {
-  height: 10px;
+  height: 30px;
 }
 
 .electricity-proportion {
@@ -142,7 +144,6 @@ svg {
 .grid-proportion {
   background-color: var(--secondary-dark);
 }
-
 
 .legend-circle {
   height: 1rem;
